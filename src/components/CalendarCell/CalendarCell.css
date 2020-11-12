@@ -1,0 +1,15 @@
+.calendar-cell{
+    font-size: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:1px solid white;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+}
+
+.calendar-cell:hover{
+    background-color: rgb(230,230,230);
+}

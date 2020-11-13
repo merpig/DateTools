@@ -8,6 +8,21 @@
     border-radius:50%;
     -moz-border-radius:50%;
     -webkit-border-radius:50%;
+    min-width: 14.2857%;
+    max-width: 14.2857%;
+    height: 14.2857%;
+}
+
+.header-cell{
+    background-color: rgb(230,230,230);
+    border-color: rgb(230,230,230);
+    border-radius: 0%;
+    -moz-border-radius:0%;
+    -webkit-border-radius:0%;
+}
+
+.active-cell{
+    border-color: black;
 }
 
 .calendar-cell:hover{

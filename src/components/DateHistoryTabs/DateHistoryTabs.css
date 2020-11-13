@@ -1,0 +1,20 @@
+.datehistory-tabs{
+    border-bottom: 0.6vw solid black;
+}
+
+.dh-active-tab{
+    border-top: 0.6vw solid black;
+    border-left: 0.6vw solid black;
+    border-right: 0.6vw solid black;
+
+    background-color: black;
+    color: white;
+
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+}
+
+.dh-tab{
+    border: 0.6vw solid white;
+    border-bottom: 0px solid white;
+}

@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/DateTools/static/css/main.c56cbab0.chunk.css",
-    "main.js": "/DateTools/static/js/main.5e84ed77.chunk.js",
-    "main.js.map": "/DateTools/static/js/main.5e84ed77.chunk.js.map",
+    "main.css": "/DateTools/static/css/main.4b7884e0.chunk.css",
+    "main.js": "/DateTools/static/js/main.f04a88bd.chunk.js",
+    "main.js.map": "/DateTools/static/js/main.f04a88bd.chunk.js.map",
     "runtime-main.js": "/DateTools/static/js/runtime-main.a5d5b121.js",
     "runtime-main.js.map": "/DateTools/static/js/runtime-main.a5d5b121.js.map",
     "static/js/2.2ed14267.chunk.js": "/DateTools/static/js/2.2ed14267.chunk.js",
@@ -12,13 +12,13 @@
     "index.html": "/DateTools/index.html",
     "service-worker.js": "/DateTools/service-worker.js",
     "service-worker.js.map": "/DateTools/service-worker.js.map",
-    "static/css/main.c56cbab0.chunk.css.map": "/DateTools/static/css/main.c56cbab0.chunk.css.map",
+    "static/css/main.4b7884e0.chunk.css.map": "/DateTools/static/css/main.4b7884e0.chunk.css.map",
     "static/js/2.2ed14267.chunk.js.LICENSE.txt": "/DateTools/static/js/2.2ed14267.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.a5d5b121.js",
     "static/js/2.2ed14267.chunk.js",
-    "static/css/main.c56cbab0.chunk.css",
-    "static/js/main.5e84ed77.chunk.js"
+    "static/css/main.4b7884e0.chunk.css",
+    "static/js/main.f04a88bd.chunk.js"
   ]
 }

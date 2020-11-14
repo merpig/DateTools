@@ -1,26 +1,22 @@
 import {useState,useEffect} from 'react';
 import "./DateHistoryEvents.css";
 
-
-
 const DateHistoryEvents = ({events}) => {
     const [index,setIndex] = useState(0);
     const [range,setRange] = useState(5);
 
-    const rangeList = [5,10,25];
-    if(events.length>rangeList[2]) rangeList.push(events.length);
+    const rangeList = [5,10,25].filter(e=>e<=events.length);
+    if(events.length>rangeList[rangeList.length-1]) rangeList.push(events.length);
 
     useEffect(()=>{
-       if(range>25&&events.length>25){
-           setRange(events.length);
-       }
-    },[events,range]);
+       events.length>=5?setRange(5):setRange(events.length);
+    },[events]);
 
     return (
         <div className="tab-list">
             <div className="sorting-options container">
                 <div className="row">
-                    <div className="col-6">
+                    <div className="col-sm-6">
                         <div className="range-selectors">
                             {rangeList.filter(e=>e<=events.length).map(rangeOption =>
                                 <div 
@@ -28,7 +24,7 @@ const DateHistoryEvents = ({events}) => {
                                     className={rangeOption===range?"range-selected":"range-selector"}
                                     onClick={()=>setRange(rangeOption)}
                                 >
-                                    {rangeOption>rangeList[2]?"All":rangeOption}
+                                    {[5,10,25].includes(rangeOption)?rangeOption:"All"}
                                 </div>
                             )}
                         </div>
@@ -37,7 +33,7 @@ const DateHistoryEvents = ({events}) => {
                         </div>
                         
                     </div>
-                    <div className="dh-filters col-6">
+                    <div className="dh-filters col-sm-6">
                     </div>
                 </div>
             </div>

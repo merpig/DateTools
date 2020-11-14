@@ -28,7 +28,7 @@ async function scrapeSite(url,setTabData){
         }
     });
 
-    console.log(data);
+    //console.log(data);
 
     $('ul').each((i, elem) => {
         if(elem.prev&&elem.prev.prev){
@@ -79,14 +79,14 @@ const DateHistory = ({month,day,year}) => {
 
 
     useEffect(()=>{
-        console.log("Component loaded");
+        //console.log("Component loaded");
         const url = `https://en.wikipedia.org/w/api.php?origin=*&action=parse&page=${months[month-1]}_${day}&prop=text&formatversion=2&format=json`;
         scrapeSite(url,setTabData);
     },[day, month]);
 
     useEffect(()=>{
         if(!events.length) return;
-        console.log(activeTab);
+        //console.log(activeTab);
         switch(activeTab){
             case 'Births':
                 setActiveTabComponent(<Events events={births}/>);

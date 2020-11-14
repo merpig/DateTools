@@ -11,7 +11,7 @@ const  App = () => {
   const [selected,setSelected] = useState(utils.dateFromUrl(window.location));
 
   useEffect(()=>{
-    console.log("Selected day changed to "+selected);
+    //console.log("Selected day changed to "+selected);
   },[selected]);
 
   return (

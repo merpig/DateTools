@@ -19,7 +19,6 @@ const tabs = [
 
 async function scrapeSite(url,setTabData){
     const html = await axios.get(url);
-    //console.log(html.data.parse.text);
     const $ = await cheerio.load(html.data.parse.text);
     let data = {};
 
@@ -81,7 +80,7 @@ const DateHistory = ({month,day,year}) => {
 
     useEffect(()=>{
         console.log("Component loaded");
-        const url = 'https://en.wikipedia.org/w/api.php?origin=*&action=parse&page='+months[month-1]+'_'+day+'&prop=text&formatversion=2&format=json';
+        const url = `https://en.wikipedia.org/w/api.php?origin=*&action=parse&page=${months[month-1]}_${day}&prop=text&formatversion=2&format=json`;
         scrapeSite(url,setTabData);
     },[day, month]);
 

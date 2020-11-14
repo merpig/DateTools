@@ -51,7 +51,7 @@ const Calendar = ({selected,setSelected}) => {
     }
 
     const dayClick=(year,month,day)=>{
-        if(selected.toLocaleDateString()===new Date([year.toString(),(month+1).toString(),day]).toLocaleDateString()) return;
+        if(selected.toLocaleDateString()===new Date(year.toString(),month.toString(),day).toLocaleDateString()) return;
 
         let monthPartial = months[month].toLowerCase().slice(0,3);
         let stateObj = { id: "100" };
@@ -61,8 +61,7 @@ const Calendar = ({selected,setSelected}) => {
                     "DateTools", `/#/${year}/${monthPartial}/${day}`):
         window.history.pushState(stateObj, 
             "DateTools", `/DateTools/#/${year}/${monthPartial}/${day}`)
-        
-        setSelected(new Date([year.toString(),(month+1).toString(),day]));
+        setSelected(new Date(year.toString(),month.toString(),day));
     }
 
     return (

@@ -1,5 +1,5 @@
 import {useState,useEffect} from 'react';
-import DateHistoryTabs from "../DateHistoryTabs/DateHistoryTabs";
+import Tabs from "../Tabs/Tabs";
 import Events from "../DateHistoryEvents/DateHistoryEvents"
 import axios from 'axios';
 import cheerio from 'cheerio';
@@ -15,7 +15,14 @@ const tabs = [
     "Births",
     "Deaths",
     "Holidays and observances"
-]
+];
+
+const tabsShort = [
+    "Events",
+    "Births",
+    "Deaths",
+    "Holidays"
+];
 
 async function scrapeSite(url,setTabData){
     const html = await axios.get(url);
@@ -37,21 +44,41 @@ async function scrapeSite(url,setTabData){
                 // console.log($(elem.prev.prev).text().trim())
                 // console.log("---------------------------------");
                 $(elem).children().each((i, child) =>{
-                    // console.log(child.children)
+                    //if(elemHeader==="Holidays and observances")
                     // console.log(
                     //     child
                     //         .children
-                    //         .filter(c=>[c.data,c.title])
-                    //         .map(e=>e.attribs?e.children[0].data:e.data)
-                    //         .join(" ")
-                    //         .replace(/\s+/g, " "));
+                    //         .filter(c=>c.name==="ul").length?
+                    //         child
+                    //             .children
+                    //             .filter(c=>c.name==="ul")[0]
+                    //             .children
+                    //             .filter(node=>node.name)
+                    //             .map(node=>$(node).text())
+                    //         :[]
+                            // .filter(c=>[c.data,c.title])
+                            // .map(e=>e.attribs?e.children[0].data:e.data)
+                            // .join(" ")
+                            // .replace(/\s+/g, " ")
+                            
+                    //);
                     data[elemHeader].push({
                         text:child
                                 .children
                                 .filter(c=>[c.data,c.title])
                                 .map(e=>e.attribs?e.children[0].data:e.data)
                                 .join(" ")
-                                .replace(/\s+/g, " ")
+                                .replace(/\s+/g, " "),
+                        subText:child
+                                .children
+                                .filter(c=>c.name==="ul").length?
+                                child
+                                    .children
+                                    .filter(c=>c.name==="ul")[0]
+                                    .children
+                                    .filter(node=>node.name)
+                                    .map(node=>$(node).text())
+                                :[]
                     })
                 });
             }
@@ -86,37 +113,25 @@ const DateHistory = ({month,day,year}) => {
 
     useEffect(()=>{
         if(!events.length) return;
-        //console.log(activeTab);
-        switch(activeTab){
-            case 'Births':
-                setActiveTabComponent(<Events events={births}/>);
-                break;
-            case 'Deaths':
-                setActiveTabComponent(<Events events={deaths}/>);
-                break;
-            case 'Holidays':
-                setActiveTabComponent(<Events events={holidays}/>);
-                break;
-            case 'Events': 
-                setActiveTabComponent(<Events events={events}/>);
-                break;
-            default:
-        }
+        const activeMatch = {
+            Births:births,Deaths:deaths,Holidays:holidays,Events:events
+        };
+        setActiveTabComponent(<Events events={activeMatch[activeTab]}/>);
     },[events, activeTab, births, deaths, holidays]);
 
     return (
-        <div className="datehistory-container">
-            <div className="datehistory-title-container">
-                <div className="datehistory-title">
+        <div className="tabs-body-container-border">
+            <div className="tabs-title-container">
+                <div className="tabs-title">
                     On 
-                    <div className="datehistory-title-date">
+                    <div className="tabs-title-date">
                         {months[month-1]} {day}
                     </div>
                     in history
                 </div>
             </div>
-            <DateHistoryTabs active={activeTab} onClick={setActiveTab}/>
-            <div className="datehistory-body container">
+            <Tabs active={activeTab} onClick={setActiveTab} tabs={tabsShort}/>
+            <div className="tabs-body">
                 {activeTabComponent}
             </div>
         </div>

@@ -1,5 +1,9 @@
 const Navbar = props => {
-    return <div></div>;
+    return (
+        <div>
+
+        </div>
+    );
 };
   
 export default Navbar;

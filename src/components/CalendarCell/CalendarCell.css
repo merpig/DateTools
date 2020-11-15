@@ -1,16 +1,21 @@
 .calendar-cell{
-    font-size: 1rem;
+    
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    border:1px solid white;
+    border:1px solid rgba(0,0,0,0);
     border-radius:50%;
     -moz-border-radius:50%;
     -webkit-border-radius:50%;
     min-width: 14.2857%;
     max-width: 14.2857%;
-    height: 14.2857%;
+}
+
+.calendar-cell:before {
+	content: "";
+	float: left;
+    padding-top: 85%; 	/* initial ratio of 1:1*/
 }
 
 .header-cell{

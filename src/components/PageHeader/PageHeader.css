@@ -1,6 +1,6 @@
 .page-header{
     height: 15vh;
     min-height: 100px;
-    max-height: 200px;
+    max-height: 100px;
     font-family: "Lucida Console", Monaco, monospace;
 }

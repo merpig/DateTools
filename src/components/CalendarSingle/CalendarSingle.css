@@ -1,0 +1,92 @@
+.calendar-container{
+    /* Flexbox: add prefixes as needed. See http://caniuse.com/#feat=flexbox */
+    /* display: flex; */
+    /* align-items: center; */
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border: 4px solid black;
+    border-radius: .5rem;
+    
+    margin: auto;
+    margin-top: 4px;
+    margin-bottom: 4px;
+
+    min-width: 150px;
+    max-width: 340px;
+}
+
+.calendar-container:before {
+	content: "";
+	float: left;
+	padding-top: 100%; 	/* initial ratio of 1:1*/
+}
+
+.calendar-title{
+    width: 100%;
+    font-size: 100%;
+}
+
+.calendar-title-container{
+    font-size: 1rem;
+    position: relative;
+    height: 20%;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    white-space:nowrap;
+    align-items: center;
+    padding:4px;
+}
+
+.calendar-body{
+    position: relative;
+    min-height: 80%;
+    width: 100%;
+}
+
+.calendar-body-content{
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: none;
+    
+    /* border: 1px dotted black; */
+}
+
+.calendar-arrow-left{
+    float:left;
+}
+.calendar-arrow-right{
+    float:right;
+}
+
+.calendar-arrow{
+    border: 1px solid lightgray;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    width: 2.5rem;
+    height: 2rem;
+    line-height: 1.5rem;
+    font-size: 2rem;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.calendar-arrow:hover{
+    background-color: rgb(230,230,230);
+}
+
+.calendar-arrow:active{
+    background-color: rgb(200,200,200);
+}

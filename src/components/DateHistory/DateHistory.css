@@ -1,24 +1,30 @@
-.datehistory-container{
+.tabs-body-container-border{
     margin: 4px;
     border: 4px solid black;
     border-radius: .5rem;
     width: 100%;
 }
 
-.datehistory-title{
+.tabs-body-container-no-border{
+    margin: 4px;
+    border: 4px solid rgba(0,0,0,0);
+    border-radius: .5rem;
+    width: 100%;
+}
+
+.tabs-title{
     display: inline-block;
     font-size: 1.5rem;
 }
 
-.datehistory-title-date{
+.tabs-title-date{
     margin-left: 8px;
     margin-right: 8px;
     display: inline-block;
     font-family: "Lucida Console", Monaco, monospace;
 }
 
-.datehistory-body{
+.tabs-body{
     text-align: left;
     height:400px;
-    overflow-y: scroll;
 }

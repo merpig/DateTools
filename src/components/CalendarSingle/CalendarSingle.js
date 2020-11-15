@@ -65,7 +65,8 @@ const CalendarSingle = ({ selected, setSelected }) => {
     }
 
     return (
-        <div className="calendar-container">
+        <div className="calendar-wrapper">
+            <div className="calendar-container">
                 <div className="calendar-title-container">
                     <div className="calendar-left-arrow calendar-arrow" onClick={subtractMonth}>{"<"}</div>
                     <div className="calendar-title">{months[month] + ", " + year}</div>
@@ -97,6 +98,7 @@ const CalendarSingle = ({ selected, setSelected }) => {
                         })}
                     </div>
                 </div>
+            </div>
         </div>
     );
 };

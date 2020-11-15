@@ -15,7 +15,7 @@
 .calendar-cell:before {
 	content: "";
 	float: left;
-    padding-top: 85%; 	/* initial ratio of 1:1*/
+    padding-top: 80%; 	/* initial ratio of 1:1*/
 }
 
 .header-cell{

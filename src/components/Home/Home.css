@@ -1,0 +1,21 @@
+.flex-fill-height{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    padding: 4px;
+}
+
+.date-search{
+    border: 4px solid black;
+    width:100%;
+    border-radius: .25rem;
+    display: flex;
+    justify-content: center;
+    min-width: 238px;
+}
+
+.date-handlers{
+    display: flex;
+    flex-direction: column;
+}

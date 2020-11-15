@@ -1,5 +1,6 @@
 import {useState,useEffect} from 'react';
 import Tabs from "../Tabs/Tabs";
+import Card from "../Card/Card";
 import Events from "../DateHistoryEvents/DateHistoryEvents"
 import axios from 'axios';
 import cheerio from 'cheerio';
@@ -85,7 +86,7 @@ async function scrapeSite(url,setTabData){
         }
     });
 
-    setTabData(data);
+   setTabData(data);
 }
 
 const DateHistory = ({month,day,year}) => {
@@ -103,10 +104,7 @@ const DateHistory = ({month,day,year}) => {
         setHolidays(data["Holidays and observances"]);
     }
 
-
-
     useEffect(()=>{
-        //console.log("Component loaded");
         const url = `https://en.wikipedia.org/w/api.php?origin=*&action=parse&page=${months[month-1]}_${day}&prop=text&formatversion=2&format=json`;
         scrapeSite(url,setTabData);
     },[day, month]);
@@ -120,21 +118,12 @@ const DateHistory = ({month,day,year}) => {
     },[events, activeTab, births, deaths, holidays]);
 
     return (
-        <div className="tabs-body-container-border">
-            <div className="tabs-title-container">
-                <div className="tabs-title">
-                    On 
-                    <div className="tabs-title-date">
-                        {months[month-1]} {day}
-                    </div>
-                    in history
-                </div>
-            </div>
-            <Tabs active={activeTab} onClick={setActiveTab} tabs={tabsShort}/>
-            <div className="tabs-body">
-                {activeTabComponent}
-            </div>
-        </div>
+        <Card
+            border={true}
+            title={`On ${months[month-1]} ${day} in history`}
+            tabs={<Tabs active={activeTab} onClick={setActiveTab} tabs={tabsShort}/>}
+            content={activeTabComponent}
+        />
     );
 };
   

@@ -1,5 +1,7 @@
 .tabs{
     border-bottom: 4px solid black;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .active-tab{
@@ -17,4 +19,9 @@
 .tab{
     border: 4px solid rgba(0,0,0,0);
     border-bottom: 0px solid rgba(0,0,0,0);
+
+}
+
+.active-tab,.tab{
+    text-align: center;
 }

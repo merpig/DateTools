@@ -1,0 +1,21 @@
+.date-search-container{
+    width:100%;
+    max-width: 420px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    padding: 4px;
+    margin: auto;
+    
+}
+
+.date-search-container > select{
+    -webkit-appearance: menulist-button;
+    /* height: 50px; */
+}
+
+.search-button{
+    border: 1px solid black;
+    text-align: center;
+}

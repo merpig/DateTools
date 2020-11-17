@@ -1,8 +1,8 @@
 import "./Card.css";
 
-const Card = ({border,title,tabs,content}) => {
+const Card = ({border,title,tabs,content,wholePage}) => {
     return (
-        <div className={`card-container-${border?"border":"no-border"} container`}>
+        <div className={`card-container-${border?"border":"no-border"} container ${wholePage?"card-whole-page":""}`}>
             <div className="card-title-container">
                 <div className="card-title">
                     {title}

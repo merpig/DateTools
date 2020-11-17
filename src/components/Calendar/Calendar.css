@@ -1,0 +1,27 @@
+iframe {
+    width:100%!important;
+    height:80vh!important
+}
+
+#calendar-container{
+    position: absolute;
+    right:-848px;
+    width:848px;
+    height:1200px;
+}
+
+.inner-calendar-container{
+    padding-right:13%;
+    padding-left:3%;
+    padding-bottom: 20%;
+    margin-left: 0;
+}
+
+.inner-calendar-container > .row > .col-4{
+    padding: 0px;
+}
+
+.calendar-title-top{
+    font-size: 2rem;
+    text-align: center;
+}

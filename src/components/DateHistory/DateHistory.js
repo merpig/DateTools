@@ -25,7 +25,7 @@ const tabsShort = [
     "Holidays"
 ];
 
-async function scrapeSite(url,setTabData){
+async function scrapeSite(url,setTabData,storeSiteData){
     const html = await axios.get(url);
     const $ = await cheerio.load(html.data.parse.text);
     let data = {};
@@ -45,41 +45,34 @@ async function scrapeSite(url,setTabData){
                 // console.log($(elem.prev.prev).text().trim())
                 // console.log("---------------------------------");
                 $(elem).children().each((i, child) =>{
-                    //if(elemHeader==="Holidays and observances")
-                    // console.log(
-                    //     child
-                    //         .children
-                    //         .filter(c=>c.name==="ul").length?
-                    //         child
-                    //             .children
-                    //             .filter(c=>c.name==="ul")[0]
-                    //             .children
-                    //             .filter(node=>node.name)
-                    //             .map(node=>$(node).text())
-                    //         :[]
-                            // .filter(c=>[c.data,c.title])
-                            // .map(e=>e.attribs?e.children[0].data:e.data)
-                            // .join(" ")
-                            // .replace(/\s+/g, " ")
-                            
-                    //);
+                    // console.log(child
+                    //     .children
+                    //     .filter(c=>!isNaN(parseInt($(c).text())))
+                    //     .map(c=>c.attribs?c.attribs.href:undefined)[0]
+                    //     );
                     data[elemHeader].push({
                         text:child
-                                .children
-                                .filter(c=>[c.data,c.title])
-                                .map(e=>e.attribs?e.children[0].data:e.data)
-                                .join(" ")
-                                .replace(/\s+/g, " "),
+                            .children
+                            .filter(c=>[c.data,c.title])
+                            .map(e=>e.attribs?e.children[0].data:e.data)
+                            .join(" ")
+                            .replace(/\s+/g, " "),
+
+                        href:child
+                            .children
+                            .filter(c=>!isNaN(parseInt($(c).text())))
+                            .map(c=>c.attribs?c.attribs.href:undefined)[0],
+
                         subText:child
+                            .children
+                            .filter(c=>c.name==="ul").length?
+                            child
                                 .children
-                                .filter(c=>c.name==="ul").length?
-                                child
-                                    .children
-                                    .filter(c=>c.name==="ul")[0]
-                                    .children
-                                    .filter(node=>node.name)
-                                    .map(node=>$(node).text())
-                                :[]
+                                .filter(c=>c.name==="ul")[0]
+                                .children
+                                .filter(node=>node.name)
+                                .map(node=>$(node).text())
+                            :[]
                     })
                 });
             }
@@ -87,6 +80,7 @@ async function scrapeSite(url,setTabData){
     });
 
    setTabData(data);
+   storeSiteData(url,data);
 }
 
 const DateHistory = ({month,day,year}) => {
@@ -104,9 +98,15 @@ const DateHistory = ({month,day,year}) => {
         setHolidays(data["Holidays and observances"]);
     }
 
+    const storeSiteData=(url,data)=>{
+        //sessionStorage.setItem(url,JSON.stringify(data));
+    }
+
     useEffect(()=>{
         const url = `https://en.wikipedia.org/w/api.php?origin=*&action=parse&page=${months[month-1]}_${day}&prop=text&formatversion=2&format=json`;
-        scrapeSite(url,setTabData);
+        sessionStorage.getItem(url)?
+        setTabData(JSON.parse(sessionStorage.getItem(url))):
+        scrapeSite(url,setTabData,storeSiteData);
     },[day, month]);
 
     useEffect(()=>{

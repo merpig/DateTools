@@ -1,0 +1,67 @@
+.time-until-container{
+    text-align: center;
+    width:100%;
+    min-height: 300px;
+}
+
+.time-until-title{
+    font-size: 1.25rem;
+}
+
+.today-row{
+    justify-content: center;
+}
+
+.timer-row{
+    padding-top:12px;
+    margin:auto;
+    margin-top:10px;
+    width: 100%;
+    max-width: 200px;
+    height:60px;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: .5rem;
+}
+
+.past-row,.future-row{
+    width:100%;
+    margin: 0px;
+}
+
+.time-until-counter{
+    margin:0px;
+    height: 30px;
+    line-height: 30px;
+    width:100%;
+}
+
+.time-until-counter-block{
+    padding:4px;
+    display: flex;
+    justify-content: center;
+}
+
+.time-block-type{
+    width: 60%;
+    border: 4px solid black;
+    border-bottom-right-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.time-block-time{
+    width: 40%;
+    border: 4px solid black;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+}
+
+.time-dif{
+    padding-left: 0px;
+    padding-right: 0px;
+}

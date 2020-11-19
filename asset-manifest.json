@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/DateTools/static/css/main.c3185d82.chunk.css",
-    "main.js": "/DateTools/static/js/main.ee4f5d94.chunk.js",
-    "main.js.map": "/DateTools/static/js/main.ee4f5d94.chunk.js.map",
+    "main.js": "/DateTools/static/js/main.8dce7e2d.chunk.js",
+    "main.js.map": "/DateTools/static/js/main.8dce7e2d.chunk.js.map",
     "runtime-main.js": "/DateTools/static/js/runtime-main.de0b55f1.js",
     "runtime-main.js.map": "/DateTools/static/js/runtime-main.de0b55f1.js.map",
     "static/js/2.b5f074b9.chunk.js": "/DateTools/static/js/2.b5f074b9.chunk.js",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.de0b55f1.js",
     "static/js/2.b5f074b9.chunk.js",
     "static/css/main.c3185d82.chunk.css",
-    "static/js/main.ee4f5d94.chunk.js"
+    "static/js/main.8dce7e2d.chunk.js"
   ]
 }
